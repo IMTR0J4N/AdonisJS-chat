@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat--container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 40em;
+  width: 35em;
+  background-color: #001329;
+}
+
+
+.messages--container {
+    position: relative;
+    padding: 0;
+    height: 35em;
+    width: 100%;
+    list-style: none;
+}
+
+.message--container {
+    width: 100%;
+    height: fit-content;
+}
+
+.outgoing-messages {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    margin-left: 495px;
+    border-radius: 5px;
+    border: #2F83E4 1px solid;
+    color: white;
+}
+
+.incoming-messages {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 5px;
+    background-color: #002047;
+    border: #FFFF 1px solid;
+    color: white;
+}
+
+.chat--controls-container {
+  position: absolute;
+  border: white solid 1px;
+  border-radius: 2px;
+  height: 40px;
+  width: 90%;
+  bottom: 15px;
+}
+
+.chat--controls-container > input[type='text'] {
+  height: 80%;
+  width: 80%;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+}
+
+.chat--controls-container > img {
+  padding-top: 5px;
+  padding-left: 5px;
+}

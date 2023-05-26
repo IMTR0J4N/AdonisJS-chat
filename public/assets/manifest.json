@@ -1,0 +1,11 @@
+{
+  "assets/app.js": "http://localhost:8080/assets/app.js",
+  "assets/chat.css": "http://localhost:8080/assets/chat.css",
+  "assets/chat.js": "http://localhost:8080/assets/chat.js",
+  "assets/fonts/Gilroy-Regular.ttf": "http://localhost:8080/assets/fonts/Gilroy-Regular.ttf",
+  "assets/fonts/Gilroy-Medium.ttf": "http://localhost:8080/assets/fonts/Gilroy-Medium.ttf",
+  "assets/fonts/Gilroy-Bold.ttf": "http://localhost:8080/assets/fonts/Gilroy-Bold.ttf",
+  "assets/images/send-btn.png": "http://localhost:8080/assets/images/send-btn.png",
+  "assets/images/emoji-btn.png": "http://localhost:8080/assets/images/emoji-btn.png",
+  "assets/images/upload_file-btn.png": "http://localhost:8080/assets/images/upload_file-btn.png"
+}

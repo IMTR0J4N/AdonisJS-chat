@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat Adonis</title>
+    @entryPointStyles('chat')
+</head>
+<body>
+    <main>
+        <div class="chat--container">
+            <ul class="messages--container" id="messagesList">
+                <li class="message--container">
+                    <p class="incoming-messages">test</p>
+                </li>
+                <li class="message--container">
+                    <p class="outgoing-messages">test</p>
+                </li>
+            </ul>
+           <div class="chat--controls-container">
+                <input class="chat--input" id="chatInput" type="text" placeholder="Write a message...">
+                <img src="{{asset('assets/images/emoji-btn.png')}}" alt="emoji list button">
+                <img src="{{asset('assets/images/upload_file-btn.png')}}" alt="file upload button">
+                <img src="{{asset('assets/images/send-btn.png')}}" alt="send button">
+           </div>
+        </div>
+    </main>
+</body>
+@entryPointScripts('app')
+</html>

@@ -1,0 +1,17 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "http://localhost:8080/assets/app.js"
+      ]
+    },
+    "chat": {
+      "css": [
+        "http://localhost:8080/assets/chat.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/chat.js"
+      ]
+    }
+  }
+}
