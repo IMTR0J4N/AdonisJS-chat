@@ -10,7 +10,6 @@ const sendMessageBtn = document.getElementById('sendMessageBtn')
 const messagesList = document.getElementById('messagesList');
 
 sendMessageBtn.addEventListener('click', () => {
-  console.log(username, chatInput.value)
   send(username, chatInput.value)
 })
 

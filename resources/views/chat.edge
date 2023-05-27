@@ -11,13 +11,7 @@
     <main>
         <div class="chat--container">
             <ul class="messages--container" id="messagesList">
-                @each(message in messages)
-                    <li class="message--container">
-                        <p class="incoming--messages">
-                            {{ message.msg }}
-                        </p>
-                    </li>
-                @endeach
+                
             </ul>
            <div class="chat--controls-container">
                 <input class="chat--input" id="chatInput" type="text" placeholder="Write a message...">

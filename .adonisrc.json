@@ -11,7 +11,8 @@
     "App": "app",
     "Config": "config",
     "Database": "database",
-    "Contracts": "contracts"
+    "Contracts": "contracts",
+    "Resources": "resources"
   },
   "preloads": ["./start/routes", "./start/kernel"],
   "providers": [

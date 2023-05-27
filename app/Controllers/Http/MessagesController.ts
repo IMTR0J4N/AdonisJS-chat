@@ -1,6 +1,5 @@
-// import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import View from '@ioc:Adonis/Core/View';
-import Message from 'App/Models/Message'
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import Message from 'App/Models/Message';
 
 export default class MessagesController {
   async create(data: { author: string; msg: string }) {
@@ -12,21 +11,18 @@ export default class MessagesController {
         message: data.msg,
       })
       .save()
-
-      console.log(this.readMessagesDb());
   }
 
-  async readMessagesDb() {
-    const messages = await Message.all()
+  async updateMessagesList({ view }: HttpContextContract) {
+    const messagesDbRes = await Message.all()
+    const messagesArray: String[] = [];
 
-    return messages
-  }
+    for (const data of messagesDbRes) {
+      messagesArray.push(data.message)
+    }
 
-  async updateMessagesList() {
-    const messages = Promise.resolve(await this.readMessagesDb())
+    console.log(messagesArray)
 
-    console.log(await messages)
-
-    return View.render('chat', await messages)
+    view.render('chat')
   }
 }
