@@ -11,6 +11,7 @@ export default class MessagesController {
         message: data.msg,
       })
       .save()
+      
   }
 
   async updateMessagesList({ view }: HttpContextContract) {
@@ -23,6 +24,8 @@ export default class MessagesController {
 
     console.log(messagesArray)
 
-    view.render('chat')
+    return view.render('chat', {
+      messagesArray
+    })
   }
 }
