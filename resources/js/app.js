@@ -19,7 +19,6 @@ chatInput.addEventListener('keypress', (e) => {
 })
 
 const send = (author, msg) => {
-  console.log(true)
   socket.emit('client:send-message', { author, msg })
 }
   socket.on('server:send-message', (content) => {

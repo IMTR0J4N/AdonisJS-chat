@@ -26,6 +26,11 @@ export default class ChatController {
     }
 
       this.sendDataToClient('server:send-message', messagesTable);
+
+      Ws.io.once('connection', (socket) => {
+        console.log(true);
+          socket.emit('server:send-message', messagesTable)
+      })
   }
   
   async renderChat({ view }: HttpContextContract) {
@@ -34,7 +39,8 @@ export default class ChatController {
   }
   
   async sendDataToClient(evt: string, data: Array<object> | Object) {
-    Ws.io.on('connection', (socket) => {
+    Ws.io.on('', (socket) => {
+      console.log(true);
         socket.emit(evt, data)
     })
   }
