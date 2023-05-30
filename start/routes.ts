@@ -19,12 +19,5 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-import MessagesController from 'App/Controllers/Http/MessagesController'
 
-Route.get('/', async (ctx) => {
-    return ctx.view.render('chat')
-})
-
-Route.get('/group/newmsg', async (ctx) => {
-    return new MessagesController().updateMessagesList(ctx)
-})
+Route.get('/', 'ChatController.renderChat')
