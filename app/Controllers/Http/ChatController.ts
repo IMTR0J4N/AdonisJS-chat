@@ -33,7 +33,9 @@ export default class ChatController {
     return view.render('chat')
   }
   
-  async sendDataToClient(evt, data) {
-      Ws.io.emit(evt, data)
+  async sendDataToClient(evt: string, data: Array<object> | Object) {
+    Ws.io.on('connection', (socket) => {
+        socket.emit(evt, data)
+    })
   }
 }
