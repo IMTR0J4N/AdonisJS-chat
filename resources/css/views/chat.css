@@ -26,6 +26,7 @@ main {
 .messages--container {
   position: relative;
   padding: 0;
+  overflow-x: hidden;
   overflow-y: scroll;
   height: 570px;
   width: 100%;

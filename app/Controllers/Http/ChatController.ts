@@ -17,7 +17,16 @@ export default class ChatController {
         .save()
     }
 
+<<<<<<< HEAD
     // this.sendDataToClient('server:send-message', data)
+=======
+      this.sendDataToClient('server:send-message', messagesTable);
+
+      Ws.io.once('connection', (socket) => {
+        console.log(true);
+          socket.emit('server:send-message', messagesTable)
+      })
+>>>>>>> b9845a2c8fd9c85eda90c576eb1e01886f0092c3
   }
 
   async readMessagesDb()  {
