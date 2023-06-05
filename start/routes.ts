@@ -20,4 +20,9 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', 'ChatController.renderChat')
+Route.group(() => {
+    Route.get('/', 'ChatController.renderChat').as('main')
+}).middleware('auth');
+
+Route.get('/login', 'SecurityController.login').as('login');
+Route.post('/login', 'SecurityController.doLogin')
