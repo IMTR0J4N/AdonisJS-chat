@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chat Adonis</title>
-    @entryPointStyles('chat')
-</head>
-<body>
-    <main>
+@layout('layouts/main')
+
+@section('main')
+   <main>
         <div class="chat--container">
             <ul class="messages--container" id="messagesList">
             </ul>
@@ -20,6 +13,4 @@
            </div>
         </div>
     </main>
-</body>
-@entryPointScripts('app')
-</html>
+@endsection

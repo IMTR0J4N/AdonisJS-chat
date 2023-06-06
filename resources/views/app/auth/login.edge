@@ -1,0 +1,28 @@
+@layout('layouts/main')
+
+@section('main')
+
+    <h1>Se Connecter</h1>
+
+    <form action="" method="POST">
+        <div class="auth--input--container">
+            @!component('components/input', {
+                label: 'Email',
+                name: 'email',
+                value: 'email'
+            })
+        </div>
+        <div class="auth--input--container">
+            @!component('components/input', {
+                label: 'Mot de passe',
+                name: 'password',
+                value: 'password'
+            })
+        </div>
+
+        <span>Tu n'as pas de compte ? <a href="/register">Enregistre toi</a></span>
+
+        <button class="auth--btn">connexion</button>
+    </form>
+
+@endsection

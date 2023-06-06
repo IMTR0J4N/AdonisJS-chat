@@ -1,0 +1,33 @@
+@layout('layouts/main')
+
+@section('main')
+
+    <h1>S'Enregistrer</h1>
+
+    <form action="" method="POST">
+        <div class="auth--input--container">
+            @!component('components/input', {
+                label: 'Nom d\'utilisateur',
+                name: 'username',
+                value: 'username'
+            })
+        </div>
+        <div class="auth--input--container">
+            @!component('components/input', {
+                label: 'Email',
+                name: 'email',
+                value: 'email'
+            })
+        </div>
+        <div class="auth--input--container">
+            @!component('components/input', {
+                label: 'Mot de passe',
+                name: 'password',
+                value: 'password'
+            })
+        </div>
+
+        <button class="auth--btn">enregistrement</button>
+    </form>
+
+@endsection

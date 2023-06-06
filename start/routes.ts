@@ -18,11 +18,18 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
+import Route from '@ioc:Adonis/Core/Route';
 
 Route.group(() => {
-    Route.get('/', 'ChatController.renderChat').as('main')
+    Route.get('/chat', 'ChatController.showChat').as('chat');
 }).middleware('auth');
 
+Route.get('/', async (ctx) => {
+    ctx.response.redirect().toRoute('login');
+})
+
 Route.get('/login', 'SecurityController.login').as('login');
-Route.post('/login', 'SecurityController.doLogin')
+Route.post('/login', 'SecurityController.doLogin');
+
+Route.get('/register', 'SecurityController.register').as('register');
+Route.post('/register', 'SecurityController.doRegister');

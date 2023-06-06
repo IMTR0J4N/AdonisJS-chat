@@ -3,7 +3,7 @@ import io from 'socket.io-client'
 
 const socket = io()
 
-const username = prompt('Choose a username')
+// const username = prompt('Choose a username')
 
  socket.on('server:send-message', (content) => {
    for (const i of content.reverse()) {

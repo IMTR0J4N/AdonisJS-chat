@@ -1,9 +1,11 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import User from 'App/Models/User'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 export default class SecuritiesController {
 
   public async login({ view }: HttpContextContract) {
-    return view.render('auth/login')
+    return view.render('app/auth/login')
   }
 
   public async doLogin({ request, auth, response, session }: HttpContextContract) {
@@ -12,11 +14,38 @@ export default class SecuritiesController {
 
     try {
       await auth.use('web').attempt(email, password)
-
-      response.redirect().toRoute('main');
+      session.put('authorId', )
+      response.redirect().toRoute('chat');
     } catch {
-      session.flash({error: "Identifiants incorrect"})
+      console.log('incorrect id')
       response.redirect().toRoute('login');
     }
   } 
+
+  public async register({ view }: HttpContextContract) {
+    return view.render('app/auth/register')
+  }
+
+  public async doRegister({ request, response }: HttpContextContract) {
+
+    const schemaReq = schema.create({
+      username: schema.string(),
+      email: schema.string({}, [rules.email()]),
+      password: schema.string()
+    })
+
+    const { username, email, password } = await request.validate({
+      schema: schemaReq,
+      messages: {
+        required: 'Merci de préciser un email valide'
+      }
+    })
+
+    User.create({
+        username: username,
+        email: email,
+        password: password
+      })
+      response.redirect().toRoute('login')
+  }
 }
