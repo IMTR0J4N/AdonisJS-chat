@@ -1,6 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
+import Database from '@ioc:Adonis/Lucid/Database'
 
 export default class SecuritiesController {
 
@@ -14,7 +15,13 @@ export default class SecuritiesController {
 
     try {
       await auth.use('web').attempt(email, password)
-      session.put('authorId', )
+      
+      const authorId = await Database.rawQuery('SELECT id FROM users WHERE email = ? ', [email])
+      const username = await Database.rawQuery('SELECT username FROM users WHERE id = ? ', [authorId])
+
+      session.put('authorId', authorId);
+      session.put('username', username);
+
       response.redirect().toRoute('chat');
     } catch {
       console.log('incorrect id')

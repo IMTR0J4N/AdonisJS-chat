@@ -6,11 +6,13 @@ export default class Message extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column()
-  public authorId: number;
-
   @hasOne(() => User, { foreignKey: "id", localKey: "authorId"})
-  public author: HasOne<typeof User>
+
+  @column()
+  public authorId: HasOne<typeof User>;
+
+  @column()
+  public author: string
 
   @column()
   public message: string

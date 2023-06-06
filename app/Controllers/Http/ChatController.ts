@@ -10,14 +10,14 @@ export default class ChatController {
     
     const message = new Message()
 
-    // for (const el of data) {
-    //   await message
-    //     .fill({
-    //       authorId: el.author,
-    //       message: el.msg
-    //     })
-    //     .save()
-    // }
+    for (const el of data) {
+      await message
+        .fill({
+          author: el.author,
+          message: el.msg
+        })
+        .save()
+    }
 
     // this.sendDataToClient('server:send-message', data)
   }
@@ -33,15 +33,15 @@ export default class ChatController {
     return messagesTable
   }
 
-  async firstConnectionData() {
+  async firstConnectionData(session) {
 
     const messagesTable = await this.readMessagesDb();
-  
+
     this.sendDataToClient('server:send-message', messagesTable)
   }
 
-  async showChat({ view }: HttpContextContract) {
-    this.firstConnectionData()
+  async showChat({ view, session }: HttpContextContract) {
+    this.firstConnectionData(session)
     return view.render('app/chat/main')
   }
 
