@@ -1,9 +1,20 @@
 
 import io from 'socket.io-client'
 
-const socket = io()
+const socket = io();
 
-// const username = prompt('Choose a username')
+const authorId = localStorage.getItem('authorId');
+const username = localStorage.getItem('username');
+
+console.log(authorId, username)
+
+// socket.on(`connect`, () => {
+//   socket.emit('client:request-ownId', (socket.id))
+//   socket.on(`server:send-ownId`, (resAuthorId) => {
+//     console.log(resAuthorId);
+//     authorId = resAuthorId
+//   });
+// })
 
  socket.on('server:send-message', (content) => {
    for (const i of content.reverse()) {

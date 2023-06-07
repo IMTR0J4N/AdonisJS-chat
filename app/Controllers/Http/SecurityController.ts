@@ -13,12 +13,13 @@ export default class SecuritiesController {
     const email = request.input('email')
     const password = request.input('password')
 
+    
     try {
       await auth.use('web').attempt(email, password)
       
       const authorId = await Database.rawQuery('SELECT id FROM users WHERE email = ? ', [email])
       const username = await Database.rawQuery('SELECT username FROM users WHERE id = ? ', [authorId])
-
+  
       session.put('authorId', authorId);
       session.put('username', username);
 

@@ -1,6 +1,7 @@
 @layout('layouts/main')
 
 @section('main')
+@entryPointStyles('chat')
    <main>
         <div class="chat--container">
             <ul class="messages--container" id="messagesList">
@@ -13,4 +14,10 @@
            </div>
         </div>
     </main>
+    <script type="module">
+        console.log({{ authorId }}, {{ username }})
+        localStorage.setItem('authorId', {{ authorId }})
+        localStorage.setItem('username', {{ username }})
+    </script>
+    @entryPointScripts('app')
 @endsection

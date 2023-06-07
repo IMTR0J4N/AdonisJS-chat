@@ -3,7 +3,6 @@ import Ws from 'App/Services/Ws'
 import { Socket } from 'socket.io';
 
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import type { SessionContract } from '@ioc:Adonis/Addons/Session';
 
 export default class ChatController {
   async createMessage(data: Array<{ author: string, msg: string }>) {
@@ -11,7 +10,7 @@ export default class ChatController {
     const message = new Message()
 
     for (const el of data) {
-      await message
+      await message 
         .fill({
           author: el.author,
           message: el.msg
@@ -33,7 +32,7 @@ export default class ChatController {
     return messagesTable
   }
 
-  async firstConnectionData(session) {
+  async firstConnectionData() {
 
     const messagesTable = await this.readMessagesDb();
 
@@ -41,8 +40,18 @@ export default class ChatController {
   }
 
   async showChat({ view, session }: HttpContextContract) {
-    this.firstConnectionData(session)
-    return view.render('app/chat/main')
+
+    this.firstConnectionData()
+
+    const authorId = session.get('authorId');
+    const username = session.get('username');
+
+    console.log(authorId[0].id);
+    
+    
+    const data = { authorId: authorId[0].id, username: username[0].username }
+    
+    return view.render('app/chat/main', data)
   }
 
   async sendDataToClient(evt: string, data: Array<object>) {
