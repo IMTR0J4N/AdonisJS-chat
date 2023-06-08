@@ -28,13 +28,13 @@ const sendMessageBtn = document.getElementById('sendMessageBtn')
 const messagesList = document.getElementById('messagesList')
 
 sendMessageBtn.addEventListener('click', () => {
-  send(username, chatInput.value)
+  send(authorId, chatInput.value)
   chatInput.value = ''
 })
 
 chatInput.addEventListener('keypress', (e) => {
   if (e.code === 'Enter') {
-    send(username, chatInput.value)
+    send(authorId, chatInput.value)
     chatInput.value = ''
   } else return
 })
@@ -45,10 +45,12 @@ const send = (author, msg) => {
 }
 
 const createNewMessage = (data) => {
+
+  console.log(data.author_id)
   
   messagesList.innerHTML += `
   <li class="message--container">
-      <p class=${data.author === username ? "outgoing-messages" : "incoming-messages"}>${data.msg}<p>
+      <p class=${data.authorId === authorId ? "outgoing-messages" : "incoming-messages"}>${data.msg}<p>
     <li>
   `
   

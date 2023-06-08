@@ -18,10 +18,10 @@ export default class SecuritiesController {
       await auth.use('web').attempt(email, password)
       
       const authorId = await Database.rawQuery('SELECT id FROM users WHERE email = ? ', [email])
-      const username = await Database.rawQuery('SELECT username FROM users WHERE id = ? ', [authorId])
-  
-      session.put('authorId', authorId);
-      session.put('username', username);
+      const username = await Database.rawQuery('SELECT username FROM users WHERE email = ? ', [email])
+
+      session.put('authorId', authorId[0].id);
+      session.put('username', username[0].username);
 
       response.redirect().toRoute('chat');
     } catch {

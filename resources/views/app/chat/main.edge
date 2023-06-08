@@ -15,9 +15,8 @@
         </div>
     </main>
     <script type="module">
-        console.log({{ authorId }}, {{ username }})
-        localStorage.setItem('authorId', {{ authorId }})
-        localStorage.setItem('username', {{ username }})
+        localStorage.setItem('authorId', {{ user.id }})
+        localStorage.setItem('username', {{ user.username.toString() }})
     </script>
     @entryPointScripts('app')
 @endsection
